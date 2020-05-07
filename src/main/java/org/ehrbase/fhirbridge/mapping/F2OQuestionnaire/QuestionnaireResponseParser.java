@@ -85,16 +85,16 @@ public class QuestionnaireResponseParser {
                     questionnaireResponsePOJO.setLivingSituation((String) getValueCode(question));
                     break;
                 case P3:
-                    questionnaireResponsePOJO.setPrivateCaregiver((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setPrivateCaregiver(getBooleanValueCode(question));
                     break;
                 case P4:
                     questionnaireResponsePOJO.setNurse((String) getValueCode(question));
                     break;
                 case P5:
-                    questionnaireResponsePOJO.setSmoker((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setSmoker(getBooleanValueCode(question));
                     break;
                 case P6:
-                    questionnaireResponsePOJO.setPregnant((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setPregnant(getBooleanValueCode(question)); //This one not
                     break;
                 default:
                     throw new IllegalArgumentException("LinkId " + question.getLinkId() + " undefined");
@@ -107,8 +107,8 @@ public class QuestionnaireResponseParser {
         for (QuestionnaireResponse.QuestionnaireResponseItemComponent question : item) {
             switch (question.getLinkId()) {
                 case C0:
-                    Object value =  getValueCode(question); //TODO workaround since unknown can be an answer
-                    if(value instanceof String)
+                    Object value = getValueCode(question); //TODO workaround since unknown can be an answer
+                    if (value instanceof String)
                         value = Boolean.FALSE;
 
                     questionnaireResponsePOJO.setContactWithInfected((Boolean) value);
@@ -123,44 +123,43 @@ public class QuestionnaireResponseParser {
         for (QuestionnaireResponse.QuestionnaireResponseItemComponent question : item) {
             switch (question.getLinkId()) {
                 case S0:
-                    questionnaireResponsePOJO.setFewer24h((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setFewer24h(getBooleanValueCode(question));
                     break;
                 case S1:
-                    questionnaireResponsePOJO.setFewer4days((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setFewer4days(getBooleanValueCode(question));
                     break;
                 case S3:
-                    questionnaireResponsePOJO.setChills((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setChills(getBooleanValueCode(question));
                     break;
                 case S4:
-                    questionnaireResponsePOJO.setTired((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setTired(getBooleanValueCode(question));
                     break;
                 case S5:
-                    questionnaireResponsePOJO.setBodyAches((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setBodyAches(getBooleanValueCode(question));
                     break;
                 case S6:
-                    questionnaireResponsePOJO.setPersistentCoughing((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setPersistentCoughing(getBooleanValueCode(question));
                     break;
                 case S7:
-                    questionnaireResponsePOJO.setRunningNose((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setRunningNose(getBooleanValueCode(question));
                     break;
                 case S8:
-                    questionnaireResponsePOJO.setDiarrhea((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setDiarrhea(getBooleanValueCode(question));
                     break;
                 case S9:
-                    questionnaireResponsePOJO.setSoreThroat((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setSoreThroat(getBooleanValueCode(question));
                     break;
                 case SA:
-                    questionnaireResponsePOJO.setHeadache((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setHeadache(getBooleanValueCode(question));
                     break;
                 case SB:
-                    questionnaireResponsePOJO.setOutOfBreath((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setOutOfBreath(getBooleanValueCode(question));
                     break;
                 case SC:
-                    questionnaireResponsePOJO.setTasteSmellLoss((Boolean) getValueCode(question));
+                    questionnaireResponsePOJO.setTasteSmellLoss(getBooleanValueCode(question));
                     break;
                 case SZ:
-                    LocalDate date = LocalDate.parse((String) getValueCode(question));
-                    questionnaireResponsePOJO.setSinceWhenSymptoms(date);
+                    questionnaireResponsePOJO.setSinceWhenSymptoms(getValueDate(question));
                     break;
                 default:
                     throw new IllegalArgumentException("LinkId " + question.getLinkId() + " undefined");
@@ -169,38 +168,19 @@ public class QuestionnaireResponseParser {
     }
 
     private static void extractAnamnesis(List<QuestionnaireResponse.QuestionnaireResponseItemComponent> item) {
-            for (QuestionnaireResponse.QuestionnaireResponseItemComponent question : item) {
-                switch (question.getLinkId()) {
-                    case D0:
-                    //    questionnaireResponsePOJO.setChronicLungDisease(getValueCode(question));
-                        break;
-                    case D1:
-                 //       questionnaireResponsePOJO.setDiabetes(getValueCode(question));
-                        break;
-                    case D2:
-                //        questionnaireResponsePOJO.setHeartDisease(getValueCode(question));
-                        break;
-                    case D3:
-                 //       questionnaireResponsePOJO.setObesity(getValueCode(question));
-                        break;
-                    default:
-                        throw new IllegalArgumentException("LinkId " + question.getLinkId() + " undefined");
-                }
-            }
-        }
-
-
-    private static void extractMedication(List<QuestionnaireResponse.QuestionnaireResponseItemComponent> item) {
         for (QuestionnaireResponse.QuestionnaireResponseItemComponent question : item) {
             switch (question.getLinkId()) {
-                case M0:
-                    //     questionnaireResponsePOJO.setSteroids(getValueCode(question));
+                case D0:
+                    questionnaireResponsePOJO.setChronicLungDisease((String) getValueCode(question));
                     break;
-                case M1:
-                    //       questionnaireResponsePOJO.setImmunosuppressants(getValueCode(question));
+                case D1:
+                    questionnaireResponsePOJO.setDiabetes((String) getValueCode(question));
                     break;
-                case M2:
-                    //        questionnaireResponsePOJO.setVaccinatedFlu(getValueCode(question));
+                case D2:
+                    questionnaireResponsePOJO.setHeartDisease((String) getValueCode(question));
+                    break;
+                case D3:
+                    questionnaireResponsePOJO.setObesity((String) getValueCode(question));
                     break;
                 default:
                     throw new IllegalArgumentException("LinkId " + question.getLinkId() + " undefined");
@@ -208,22 +188,52 @@ public class QuestionnaireResponseParser {
         }
     }
 
-    private static Object getValueCode(QuestionnaireResponse.QuestionnaireResponseItemComponent i) {
+
+    private static void extractMedication(List<QuestionnaireResponse.QuestionnaireResponseItemComponent> item) {
+        for (QuestionnaireResponse.QuestionnaireResponseItemComponent question : item) {
+            switch (question.getLinkId()) {
+                case M0:
+                    questionnaireResponsePOJO.setSteroids(getBooleanValueCode(question));
+                    break;
+                case M1:
+                    questionnaireResponsePOJO.setImmunosuppressants(getBooleanValueCode(question));
+                    break;
+                case M2:
+                    questionnaireResponsePOJO.setVaccinatedFlu(getBooleanValueCode(question));
+                    break;
+                default:
+                    throw new IllegalArgumentException("LinkId " + question.getLinkId() + " undefined");
+            }
+        }
+    }
+
+    private static Object getValueCode(QuestionnaireResponse.QuestionnaireResponseItemComponent value) {
         try {
+            System.out.println("asdasdads");
+            Object code = value.getAnswer().get(0).getValueCoding().getCode();
+            System.out.println("asdasdads" + code);
+            String codeString = "" + code;
 
-            Object code = i.getAnswer().get(0).getValueCoding().getCode();
-            String codeString = code.toString();
-
-            if(Utils.isLoincCode(codeString))
+            if (Utils.isLoincCode(codeString))
                 code = Utils.decodeLOINCCode(codeString);
 
-            if(Utils.isFhirCode(codeString))
+            if (Utils.isFhirCode(codeString))
                 code = Utils.decodeFhirCode(codeString);
 
-            return code;
-        }catch (FHIRException e){ //TODO fix to support every value (at the moment only codes or empty)
-            return "";
+            return (code != null) ? code : " ";
+        } catch (NullPointerException |FHIRException e ) { //TODO fix to support every value (at the moment only codes or empty)
+            return " ";
         }
+    }
+
+    private static Boolean getBooleanValueCode(QuestionnaireResponse.QuestionnaireResponseItemComponent value) {
+        String code = (String) getValueCode(value);
+        System.out.println(code);
+        return Utils.parseStringToBoolean(code);
+    }
+
+    private static LocalDate getValueDate(QuestionnaireResponse.QuestionnaireResponseItemComponent value){
+        return LocalDate.parse(value.getAnswer().get(0).getValueDateType().getValueAsString());
     }
 
 }

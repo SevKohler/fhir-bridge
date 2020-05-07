@@ -29,9 +29,9 @@ public class QuestionnaireResponsePOJO {
     private String diabetes;
     private String heartDisease;
     private String obesity;
-    private String steroids;
-    private String immunosuppressants;
-    private String vaccinatedFlu;
+    private Boolean steroids;
+    private Boolean immunosuppressants;
+    private Boolean vaccinatedFlu;
 
     public QuestionnaireResponsePOJO() {
     }
@@ -196,7 +196,7 @@ public class QuestionnaireResponsePOJO {
         this.chronicLungDisease = chronicLungDisease;
     }
 
-    public String getChronicLungDisease() {        return chronicLungDisease;    }
+    public String getChronicLungDisease() { return chronicLungDisease;    }
 
     protected void setDiabetes(String diabetes) {
         this.diabetes = diabetes;
@@ -222,27 +222,27 @@ public class QuestionnaireResponsePOJO {
         return obesity;
     }
 
-    protected void setSteroids(String steroids) {
+    protected void setSteroids(Boolean steroids) {
         this.steroids = steroids;
     }
 
-    public String getSteroids() {
+    public Boolean getSteroids() {
         return steroids;
     }
 
-    protected void setImmunosuppressants(String immunosuppressants) {
+    protected void setImmunosuppressants(Boolean immunosuppressants) {
         this.immunosuppressants = immunosuppressants;
     }
 
-    public String getImmunosuppressants() {
+    public Boolean getImmunosuppressants() {
         return immunosuppressants;
     }
 
-    protected void setVaccinatedFlu(String vaccinatedFlu) {
+    protected void setVaccinatedFlu(Boolean vaccinatedFlu) {
         this.vaccinatedFlu = vaccinatedFlu;
     }
 
-    public String getVaccinatedFlu() {
+    public Boolean getVaccinatedFlu() {
         return vaccinatedFlu;
     }
 

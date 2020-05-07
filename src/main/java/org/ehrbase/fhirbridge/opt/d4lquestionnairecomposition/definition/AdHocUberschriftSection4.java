@@ -13,17 +13,17 @@ import org.ehrbase.client.annotations.Path;
 public class AdHocUberschriftSection4 implements D4LQuestionnaireOrgEhrbaseEhrEncodeWrappersSnakecase3ec2eceaAdHocUberschriftChoice {
   @Path("/items[openEHR-EHR-EVALUATION.medication_summary.v0]")
   @Choice
-  private AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice zusammenfassungDerMedikation;
+  private List<AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice> zusammenfassungDerMedikation;
 
   @Path("/items[openEHR-EHR-ACTION.medication.v1]")
   private List<ArzneimittelverwaltungAction> arzneimittelverwaltung;
 
   public void setZusammenfassungDerMedikation(
-      AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice zusammenfassungDerMedikation) {
+      List<AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice> zusammenfassungDerMedikation) {
      this.zusammenfassungDerMedikation = zusammenfassungDerMedikation;
   }
 
-  public AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice getZusammenfassungDerMedikation(
+  public List<AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice> getZusammenfassungDerMedikation(
       ) {
      return this.zusammenfassungDerMedikation ;
   }

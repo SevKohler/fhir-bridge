@@ -21,6 +21,8 @@ public abstract class Composition {
     @Id
     private VersionUid versionUid;
 
+    @Path("/composer")
+    private PartyProxy composer;
 
     @Path("/context/participations")
     private List<Participation> participations;
@@ -52,6 +54,7 @@ public abstract class Composition {
     public abstract String getLocation();
     public abstract CategoryDefiningcode getCategoryDefiningcode() ;
     public abstract TemporalAccessor getStartTimeValue() ;
+    public abstract PartyProxy getComposer() ;
     public abstract void setVersionUid(VersionUid versionUid) ;
     public abstract void setParticipations(List<Participation> participations) ;
     public abstract void setLanguage(Language language);
@@ -60,4 +63,6 @@ public abstract class Composition {
     public abstract void setLocation(String location);
     public abstract void setCategoryDefiningcode(CategoryDefiningcode categoryDefiningcode);
     public abstract void setStartTimeValue(TemporalAccessor startTimeValue);
+    public abstract void setComposer(PartyProxy partyProxy);
+
 }

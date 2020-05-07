@@ -7,6 +7,7 @@ public enum OperationalTemplateData {
 
     CORONA_DIAGNOSIS("", "Diagnose.opt", "Diagnose"),
     CORONA_TEMP("", "Intensivmedizinisches Monitoring Körpertemperatur.opt", "Intensivmedizinisches Monitoring Körpertemperatur"),
+    CORONA_QUESTIONNAIRE("", "D4L_questionnaire.opt", "D4L_questionnaire"),
     CORONA_TEST("", "Kennzeichnung Erregernachweis SARS-CoV-2.opt", "Kennzeichnung Erregernachweis SARS-CoV-2"),
     CORONA_LAB("", "Laborbefund.opt", "Laborbefund");
 

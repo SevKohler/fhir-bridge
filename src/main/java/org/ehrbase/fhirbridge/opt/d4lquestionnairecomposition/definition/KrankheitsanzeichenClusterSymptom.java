@@ -13,7 +13,11 @@ import org.ehrbase.client.annotations.Path;
 @Archetype("openEHR-EHR-CLUSTER.symptom_sign.v1")
 @OptionFor("CLUSTER")
 public class KrankheitsanzeichenClusterSymptom implements ProblemDiagnoseKrankheitsanzeichenChoice {
-  @Path("/items[at0021]/value|value")
+
+   @Path("/name|value")
+   private String name;
+
+    @Path("/items[at0021]/value|value")
   private String schweregradValue;
 
   @Path("/items[at0063]")
@@ -33,6 +37,7 @@ public class KrankheitsanzeichenClusterSymptom implements ProblemDiagnoseKrankhe
 
   @Path("/items[at0147]")
   private List<Cluster> spezifischeAnatomischeLokalisation;
+
 
   @Path("/items[at0035]/name|value")
   private String nichtSignifikantValueName;
@@ -101,4 +106,13 @@ public class KrankheitsanzeichenClusterSymptom implements ProblemDiagnoseKrankhe
   public String getNichtSignifikantValueName() {
      return this.nichtSignifikantValueName ;
   }
+
+    public String getName() {  return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public Boolean getNichtSignifikantValue() {
+        return nichtSignifikantValue;
+    }
+
 }
