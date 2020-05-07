@@ -51,6 +51,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
     @SuppressWarnings("unused")
     public MethodOutcome createObservation(@ResourceParam Observation observation) {
         checkProfiles(observation);
+        //TODO refactor
 
         // TODO: Do we need to handle the case where several profiles are defined and valid?
         if (ProfileUtils.hasProfile(observation, Profile.OBSERVATION_LAB)) {
@@ -61,7 +62,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 // test map FHIR to openEHR
                 LaborbefundComposition composition = F2OLabReport.map(observation);
                 UUID ehr_id = service.createEhr(); // <<< reflections error!
-                VersionUid versionUid = service.saveLab(ehr_id, composition);
+                VersionUid versionUid = service.save(ehr_id, composition);
                 System.out.println("Composition created with UID "+ versionUid.toString() +" for FHIR profile "+ Profile.OBSERVATION_LAB);
 
             } catch (Exception e) {
@@ -78,7 +79,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 // test map FHIR to openEHR
                 KennzeichnungErregernachweisSARSCoV2Composition composition = F2OSarsTestResult.map(observation);
                 UUID ehr_id = service.createEhr(); // <<< reflections error!
-                VersionUid versionUid = service.saveTest(ehr_id, composition);
+                VersionUid versionUid = service.save(ehr_id, composition);
                 System.out.println("Composition created with UID "+ versionUid.toString() +" for FHIR profile "+ Profile.BODY_TEMP);
 
             } catch (Exception e) {
@@ -95,7 +96,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 // test map FHIR to openEHR
                 IntensivmedizinischesMonitoringKorpertemperaturComposition composition = F2OTemperature.map(observation);
                 UUID ehr_id = service.createEhr(); // <<< reflections error!
-                VersionUid versionUid = service.saveTemp(ehr_id, composition);
+                VersionUid versionUid = service.save(ehr_id, composition);
                 System.out.println("Composition created with UID "+ versionUid.toString() +" for FHIR profile "+ Profile.BODY_TEMP);
 
             } catch (Exception e) {

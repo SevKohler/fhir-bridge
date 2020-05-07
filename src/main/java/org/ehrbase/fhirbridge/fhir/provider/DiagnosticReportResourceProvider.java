@@ -44,7 +44,7 @@ public class DiagnosticReportResourceProvider extends AbstractResourceProvider {
             try {
                 LaborbefundComposition composition = F2OLabReport.map(diagnosticReport);
                 UUID ehr_id = service.createEhr(); // <<< reflections error!
-                VersionUid versionUid = service.saveLab(ehr_id, composition);
+                VersionUid versionUid = service.save(ehr_id, composition);
                 System.out.println("Composition created with UID "+ versionUid.toString() +" for FHIR profile "+ Profile.BODY_TEMP);
             } catch (Exception e) {
                 System.out.println(e.getMessage());

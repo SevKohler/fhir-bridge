@@ -2,6 +2,7 @@ package org.ehrbase.fhirbridge.rest;
 
 import org.ehrbase.client.openehrclient.VersionUid;
 import org.ehrbase.client.openehrclient.defaultrestclient.DefaultRestClient;
+import org.ehrbase.fhirbridge.opt.Composition;
 import org.ehrbase.fhirbridge.opt.diagnosecomposition.DiagnoseComposition;
 import org.ehrbase.fhirbridge.opt.intensivmedizinischesmonitoringkorpertemperaturcomposition.IntensivmedizinischesMonitoringKorpertemperaturComposition;
 import org.ehrbase.fhirbridge.opt.kennzeichnungerregernachweissarscov2composition.KennzeichnungErregernachweisSARSCoV2Composition;
@@ -23,35 +24,9 @@ public class EhrbaseService {
         return client.ehrEndpoint().createEhr();
     }
 
-    public VersionUid saveLab(UUID ehrId, LaborbefundComposition composition) {
-        // TODO invoke post processing
-
+    public VersionUid save(UUID ehrId, Composition composition) {
         client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
-
         return composition.getVersionUid();
     }
 
-    public VersionUid saveDiagnosis(UUID ehrId, DiagnoseComposition composition) {
-        // TODO invoke post processing
-
-        client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
-
-        return composition.getVersionUid();
-    }
-
-    public VersionUid saveTemp(UUID ehrId, IntensivmedizinischesMonitoringKorpertemperaturComposition composition) {
-        // TODO invoke post processing
-
-        client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
-
-        return composition.getVersionUid();
-    }
-
-    public VersionUid saveTest(UUID ehrId, KennzeichnungErregernachweisSARSCoV2Composition composition) {
-        // TODO invoke post processing
-
-        client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
-
-        return composition.getVersionUid();
-    }
 }

@@ -1,0 +1,4 @@
+package org.ehrbase.fhirbridge.opt.d4lquestionnairecomposition.definition;
+
+public interface AdHocUberschriftOrgEhrbaseEhrEncodeWrappersSnakecase25e49cb2ZusammenfassungDerMedikationChoice {
+}

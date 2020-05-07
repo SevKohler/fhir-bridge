@@ -39,7 +39,7 @@ public class ConditionResourceProvider extends AbstractResourceProvider {
             // test map FHIR to openEHR
             DiagnoseComposition composition = F2ODiagnose.map(condition);
             UUID ehr_id = service.createEhr(); // <<< reflections error!
-            VersionUid versionUid = service.saveDiagnosis(ehr_id, composition);
+            VersionUid versionUid = service.save(ehr_id, composition);
             System.out.println("Composition created with UID "+ versionUid.toString() +" for FHIR profile "+ Profile.OBSERVATION_LAB);
 
         } catch (Exception e) {

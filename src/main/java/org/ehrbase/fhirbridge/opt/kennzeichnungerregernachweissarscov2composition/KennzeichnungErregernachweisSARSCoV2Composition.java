@@ -12,6 +12,7 @@ import org.ehrbase.client.annotations.Id;
 import org.ehrbase.client.annotations.Path;
 import org.ehrbase.client.annotations.Template;
 import org.ehrbase.client.openehrclient.VersionUid;
+import org.ehrbase.fhirbridge.opt.Composition;
 import org.ehrbase.fhirbridge.opt.kennzeichnungerregernachweissarscov2composition.definition.FallidentifikationCluster;
 import org.ehrbase.fhirbridge.opt.kennzeichnungerregernachweissarscov2composition.definition.KennzeichnungErregernachweisEvaluation;
 import org.ehrbase.fhirbridge.opt.shareddefinition.CategoryDefiningcode;
@@ -22,7 +23,7 @@ import org.ehrbase.fhirbridge.opt.shareddefinition.Territory;
 @Entity
 @Archetype("openEHR-EHR-COMPOSITION.report.v1")
 @Template("Kennzeichnung Erregernachweis SARS-CoV-2")
-public class KennzeichnungErregernachweisSARSCoV2Composition {
+public class KennzeichnungErregernachweisSARSCoV2Composition extends Composition {
   @Id
   private VersionUid versionUid;
 
@@ -188,4 +189,5 @@ public class KennzeichnungErregernachweisSARSCoV2Composition {
   public String getBerichtIdValueTree() {
      return this.berichtIdValueTree ;
   }
+
 }

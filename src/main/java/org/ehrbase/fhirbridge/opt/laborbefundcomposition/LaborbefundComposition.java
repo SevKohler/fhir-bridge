@@ -12,6 +12,7 @@ import org.ehrbase.client.annotations.Id;
 import org.ehrbase.client.annotations.Path;
 import org.ehrbase.client.annotations.Template;
 import org.ehrbase.client.openehrclient.VersionUid;
+import org.ehrbase.fhirbridge.opt.Composition;
 import org.ehrbase.fhirbridge.opt.laborbefundcomposition.definition.FallidentifikationCluster;
 import org.ehrbase.fhirbridge.opt.laborbefundcomposition.definition.LaborergebnisObservation;
 import org.ehrbase.fhirbridge.opt.shareddefinition.CategoryDefiningcode;
@@ -22,7 +23,7 @@ import org.ehrbase.fhirbridge.opt.shareddefinition.Territory;
 @Entity
 @Archetype("openEHR-EHR-COMPOSITION.report-result.v1")
 @Template("Laborbefund")
-public class LaborbefundComposition {
+public class LaborbefundComposition  extends Composition {
   @Id
   private VersionUid versionUid;
 

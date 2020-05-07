@@ -113,4 +113,5 @@ public class KennzeichnungErregernachweisEvaluation {
   public TemporalAccessor getZuletztAktualisiertValue() {
      return this.zuletztAktualisiertValue ;
   }
+
 }

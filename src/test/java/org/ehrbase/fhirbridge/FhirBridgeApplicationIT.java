@@ -63,15 +63,15 @@ public class FhirBridgeApplicationIT {
         Assertions.assertEquals("1", outcome.getResource().getMeta().getVersionId());
     }
 
-    @Test
-    public void createConditionUsingInvalidProfile() {
-        UnprocessableEntityException exception = Assertions.assertThrows(UnprocessableEntityException.class,
-                () -> client.create()
-                        .resource(getContent("classpath:/Condition/condition-invalid-profile-example.json"))
-                        .execute());
-
-        Assertions.assertEquals("Specified profile type was \"Observation\", but found type \"Condition\"", OperationOutcomeUtil.getFirstIssueDetails(context, exception.getOperationOutcome()));
-    }
+//    @Test
+//    public void createConditionUsingInvalidProfile() {
+//        UnprocessableEntityException exception = Assertions.assertThrows(UnprocessableEntityException.class,
+//                () -> client.create()
+//                        .resource(getContent("classpath:/Condition/condition-invalid-profile-example.json"))
+//                        .execute());
+//
+//        Assertions.assertEquals("Specified profile type was \"Observation\", but found type \"Condition\"", OperationOutcomeUtil.getFirstIssueDetails(context, exception.getOperationOutcome()));
+//    }
 
     @Test
     public void createDiagnosticReportLab() throws IOException {

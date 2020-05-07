@@ -77,7 +77,7 @@ public class OpenEhrController {
         body.setLaborergebnis(observations);
         // END
 
-        VersionUid versionUid = service.saveLab(ehrId, body);
+        VersionUid versionUid = service.save(ehrId, body);
         return ResponseEntity.ok(versionUid);
     }
 
@@ -85,7 +85,7 @@ public class OpenEhrController {
     public ResponseEntity<VersionUid> postDiagnosis(
             @PathVariable(value = "ehr_id") UUID ehrId,
             @RequestBody DiagnoseComposition body) {
-        VersionUid versionUid = service.saveDiagnosis(ehrId, body);
+        VersionUid versionUid = service.save(ehrId, body);
         return ResponseEntity.ok(versionUid);
     }
 
@@ -93,7 +93,7 @@ public class OpenEhrController {
     public ResponseEntity<VersionUid> postTemp(
             @PathVariable(value = "ehr_id") UUID ehrId,
             @RequestBody IntensivmedizinischesMonitoringKorpertemperaturComposition body) {
-        VersionUid versionUid = service.saveTemp(ehrId, body);
+        VersionUid versionUid = service.save(ehrId, body);
         return ResponseEntity.ok(versionUid);
     }
 
@@ -101,7 +101,7 @@ public class OpenEhrController {
     public ResponseEntity<VersionUid> postTest(
             @PathVariable(value = "ehr_id") UUID ehrId,
             @RequestBody KennzeichnungErregernachweisSARSCoV2Composition body) {
-        VersionUid versionUid = service.saveTest(ehrId, body);
+        VersionUid versionUid = service.save(ehrId, body);
         return ResponseEntity.ok(versionUid);
     }
 

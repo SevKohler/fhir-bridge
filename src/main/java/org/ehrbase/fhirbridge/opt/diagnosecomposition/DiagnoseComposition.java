@@ -12,6 +12,7 @@ import org.ehrbase.client.annotations.Id;
 import org.ehrbase.client.annotations.Path;
 import org.ehrbase.client.annotations.Template;
 import org.ehrbase.client.openehrclient.VersionUid;
+import org.ehrbase.fhirbridge.opt.Composition;
 import org.ehrbase.fhirbridge.opt.diagnosecomposition.definition.DiagnoseEvaluation;
 import org.ehrbase.fhirbridge.opt.diagnosecomposition.definition.FallidentifikationCluster;
 import org.ehrbase.fhirbridge.opt.shareddefinition.CategoryDefiningcode;
@@ -22,7 +23,7 @@ import org.ehrbase.fhirbridge.opt.shareddefinition.Territory;
 @Entity
 @Archetype("openEHR-EHR-COMPOSITION.report.v1")
 @Template("Diagnose")
-public class DiagnoseComposition {
+public class DiagnoseComposition extends Composition {
   @Id
   private VersionUid versionUid;
 
